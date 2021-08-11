@@ -14,7 +14,7 @@ class VisionTest(unittest.TestCase):
         start = rospy.Time.now().to_sec()
 
         prev_lhz, prev_rhz = 0, 0
-        rate = roapy.Rate(10)
+        rate = rospy.Rate(10)
         while rospy.Time.now().to_sec() - start < 10.0:
             lhz = self.get_file_freq("l")
             rhz = self.get_file_freq("r")
