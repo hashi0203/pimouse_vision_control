@@ -1,0 +1,10 @@
+<launch>
+    <include file="$(find pimouse_ros)/launch/pimouse.launch" />
+
+    <node pkg="rosbag" type="play" name="player" output="screen" args="$(find pimouse_vision_control)/bagfiles/face-left.bag" required="true" />
+    <node pkg="pimouse_vision_control" name="face_to_face" type="face_to_face.py" output="screen" />
+
+    <node pkg="web_video_server" name="web_video_server" type="web_video_server" >
+        <param name="port" value="10000" />
+    </node>
+</launch>
